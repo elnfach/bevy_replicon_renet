@@ -25,10 +25,13 @@ rustdoc-args = ["-Zunstable-options", "--cfg", "docsrs"]
 all-features = true
 
 [dependencies]
-bevy_replicon = { git = "https://github.com/simgine/bevy_replicon", branch = "bevy-0.19", default-features = false }
+bevy_replicon = { git = "https://github.com/elnfach/bevy_replicon", branch = "bevy-0.19", default-features = false }
 bevy_renet = { git = "https://github.com/simgine/renet", branch = "bevy-0.19", default-features = false }
-bevy = { git = "https://github.com/cart/bevy", branch = "next-generation-scenes", default-features = false, features = ["bevy_log"] }
-
+bevy = {
+  version = "0.19.0-dev",
+  default-features = false,
+  features = ["bevy_log"]
+}
 [dev-dependencies]
 bevy = { git = "https://github.com/cart/bevy", branch = "next-generation-scenes", default-features = false, features = [
   "bevy_gizmos",
@@ -79,3 +82,9 @@ required-features = ["server", "client", "renet_netcode"]
 [[example]]
 name = "tic_tac_toe"
 required-features = ["server", "client", "renet_netcode"]
+
+[patch.crates-io]
+bevy = {
+  git = "https://github.com/bevyengine/bevy",
+  rev = "489818930b7ec268455fe371b3c5b0fb1c0c46c3",
+}
